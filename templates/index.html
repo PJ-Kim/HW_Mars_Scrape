@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!---Jquery-->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+  </script>
+  
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="mars_css.css"> 
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron text-center">
+          <h1>MARS INFORMATION</h1>
+          <p></p>
+          <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Launch Data!</a></p>
+    </div>
+          <h2>Latest Mars News:</h2>
+          <h3>{{ mars_dict.news_title }}</h3>
+          <h3>{{ mars_dict.news_teaser }}</h3>
+        <!----img> url= {{ mars_dict.featured_image}} </img>-->
+        <h3 class="text-left">Featured Image</h3>
+          <div class="row">
+              <div class="col-sm-10">
+                  <section id="main-bio">
+                      <section id="figure">
+                          <h2 id="bio-name"></h2>
+                          <img src="{{ mars_dict.featured_image }}" width="1200" height="1000">
+                      </section>
+                  </section>
+              </div>
+              <h5 class="text-right"></h5>
+              <div class="col-lg-1">
+                        <div class="card" style="width: 16rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">Current Weather on Mars</h5>
+                              <a class="card-text">{{mars_dict.weather_tweet}}</a>
+                            </div>
+                        </div>
+              <div class="col-lg-1">
+                        <div class="table" style="width: 16rem;">
+                            <h5 class >Mars Facts</h5>
+                            <a>{{ mars_dict.facts|safe }}</a>
+                        </div>
+              </div>
+              </h5>
+          </div>
+    {% for hemi in mars_dict.hemis %}
+    <div class="col-lg-6">
+      <div class="thumbnail">
+        <!-- if images is False/None/non-existent, then default to error message -->
+        <img src ="{{hemi.img_url | default('static/images/error.png', true)}}"
+            alt="...">
+        <div class="caption">
+            <h3>{{hemi.title}}</h3>
+        </div>
+        </div>
+    </div>
+    {% endfor %}
+<!--  -->
+  </div>
+  </div>
+</body>
+
+</html>

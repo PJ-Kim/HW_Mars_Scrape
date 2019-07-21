@@ -1,0 +1,84 @@
+/*
+ First External CSS Stylesheet
+ */
+
+/* Styling for HTML elements */
+body {
+    padding: 20;
+    margin: 20px;
+    font-family: "Arial Bold", "Arial Black", Gadget, sans-serif;
+    font-size: 20px;
+    line-height: 150%;
+    color: black;
+    background:white;
+  }
+
+  header {
+    background: yellow;
+  }
+  h1 {
+    font-size: 24px;
+    color:red;
+  }
+  
+  h2 {
+    font-size: 18px;
+    color:black;
+  }
+  h3 {
+    font-size: 16px;
+    color: black;
+    margin-left: 80px;
+    font: bold;
+  }
+  h4 {
+    font-size: 20px;
+    color: black;
+  }
+  h5 {
+    font-size: 16px;
+    color:blue;
+  }
+  h6 {
+    font-size: 18px;
+    color: black;  
+    margin-left: 180px;
+  }
+  a {
+    color:black;
+  }
+  
+  /* Selecting elements by class */
+  .container {
+    width: 1024px;
+    margin:  auto;
+  }
+  
+  /* Selecting elements by ID */
+  #main-bio,
+  #bio-image {
+    float: left;
+  }
+
+  #figure {
+    position: relative;
+  }
+
+  #figure2 {
+    position: relative;
+  }
+  
+  #bio-name {
+    position: absolute;
+    top: 150px;
+    left: 30px;
+  }
+
+  #bio-name2 {
+    position: center;
+    top: 150px;
+    left: 30px;
+  }
+  
+
+
